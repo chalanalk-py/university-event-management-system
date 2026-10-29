@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "University Event Management System API Server",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
