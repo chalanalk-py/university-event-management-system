@@ -107,6 +107,18 @@
       "phone": null,
       "avatar_color": "#3B82F6",
       "created_at": "2026-10-27T15:19:15.159Z"
+    },
+    {
+      "id": 10,
+      "email": "sachini@gmail.com",
+      "username": "sachini12",
+      "password_hash": "$2a$08$SLlIsn.w4IF8i25bomCHPu8JD0QgQYqSGIMa58B8nrAhRK42G4oJi",
+      "full_name": "M",
+      "role": "admin",
+      "coordinator_area": null,
+      "phone": null,
+      "avatar_color": "#3B82F6",
+      "created_at": "2026-10-31T06:37:32.173Z"
     }
   ],
   "events": [
@@ -165,6 +177,20 @@
       "created_by_user_id": 1,
       "agenda_controller_id": null,
       "created_at": "2026-10-27T16:14:36.354Z"
+    },
+    {
+      "id": 5,
+      "title": "koduyathra",
+      "description": "qqqqq",
+      "venue": "qqq",
+      "event_date": "2026-10-31",
+      "start_time": "09:00",
+      "end_time": "18:00",
+      "status": "active",
+      "total_budget": 0,
+      "created_by_user_id": 10,
+      "agenda_controller_id": null,
+      "created_at": "2026-10-31T06:38:04.715Z"
     }
   ],
   "schedules": [
@@ -843,6 +869,16 @@
     }
   ],
   "notifications": [
+    {
+      "id": 24,
+      "event_id": 5,
+      "user_id": null,
+      "title": "Event Created: koduyathra",
+      "message": "New event \"koduyathra\" has been created. Schedule and nominations are now open!",
+      "type": "system",
+      "is_read": false,
+      "created_at": "2026-10-31T06:38:04.715Z"
+    },
     {
       "id": 23,
       "event_id": 4,
