@@ -3,14 +3,14 @@ import { query } from '../../config/database.js';
 // Post lost item
 export const postLostItem = async (req, res) => {
   try {
-    const { event_id, description, location, post_date } = req.body;
-    const photo_url = req.file ? `/uploads/${req.file.filename}` : null;
+    const { event_id, description, location, collection_point, post_date } = req.body;
+    const photo_url = req.file ? `/uploads/${req.file.filename}` : (req.body.photo_url || null);
     if (!description) return res.status(400).json({ error: 'Description required' });
 
     const result = await query(
-      `INSERT INTO lost_found_posts (event_id, user_id, type, description, photo_url, location, post_date) 
-       VALUES ($1, $2, 'lost', $3, $4, $5, $6) RETURNING *`,
-      [event_id, req.user.id, description, photo_url, location, post_date || new Date()]
+      `INSERT INTO lost_found_posts (event_id, user_id, type, description, photo_url, location, collection_point, post_date) 
+       VALUES ($1, $2, 'lost', $3, $4, $5, $6, $7) RETURNING *`,
+      [event_id, req.user.id, description, photo_url, location || null, collection_point || null, post_date || new Date()]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -21,14 +21,14 @@ export const postLostItem = async (req, res) => {
 // Post found item
 export const postFoundItem = async (req, res) => {
   try {
-    const { event_id, description, collection_point } = req.body;
-    const photo_url = req.file ? `/uploads/${req.file.filename}` : null;
+    const { event_id, description, location, collection_point, post_date } = req.body;
+    const photo_url = req.file ? `/uploads/${req.file.filename}` : (req.body.photo_url || null);
     if (!description) return res.status(400).json({ error: 'Description required' });
 
     const result = await query(
-      `INSERT INTO lost_found_posts (event_id, user_id, type, description, photo_url, collection_point) 
-       VALUES ($1, $2, 'found', $3, $4, $5) RETURNING *`,
-      [event_id, req.user.id, description, photo_url, collection_point]
+      `INSERT INTO lost_found_posts (event_id, user_id, type, description, photo_url, location, collection_point, post_date) 
+       VALUES ($1, $2, 'found', $3, $4, $5, $6, $7) RETURNING *`,
+      [event_id, req.user.id, description, photo_url, location || null, collection_point || null, post_date || new Date()]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
