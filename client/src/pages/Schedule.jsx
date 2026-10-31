@@ -262,7 +262,7 @@ const styles = {
 
   warning: { position: 'relative', background: '#fff8e1', border: '1px solid #ffc107', color: '#7a5a00', borderRadius: 10, padding: '12px 40px 12px 16px', marginBottom: 16, fontSize: 14 },
   warningList: { margin: '6px 0 0', paddingLeft: 20 },
-  warningClose: { position: 'absolute', top: 8, right: 12, border: 'none', background: 'transparent', color: '#7a5a00', fontSize: 18, cursor: 'pointer' },
+  warningClose: { position: 'absolute', top: 8, right: 12, padding: 0, border: 'none', background: 'transparent', color: '#7a5a00', fontSize: 18, cursor: 'pointer' },
   empty: { color: '#888888', textAlign: 'center', padding: 40 },
 
   list: { display: 'flex', flexDirection: 'column', gap: 16 },
@@ -277,8 +277,8 @@ const styles = {
   metaItem: { display: 'flex', alignItems: 'center', gap: 5, color: '#888888' },
   speaker: { display: 'flex', alignItems: 'center', gap: 5, color: '#3b82f6', fontWeight: 500 },
   actions: { display: 'flex', gap: 8, flexShrink: 0 },
-  iconBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 30, border: '1px solid #e8e8e8', background: '#ffffff', borderRadius: 8, cursor: 'pointer' },
-  deleteBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 30, border: '1px solid #fee2e2', background: '#fff5f5', borderRadius: 8, cursor: 'pointer' },
+  iconBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 30, padding: 0, border: '1px solid #e8e8e8', background: '#ffffff', borderRadius: 8, cursor: 'pointer' },
+  deleteBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 30, padding: 0, border: '1px solid #fee2e2', background: '#fff5f5', borderRadius: 8, cursor: 'pointer' },
 
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 },
   gridCard: { display: 'flex', flexDirection: 'column', background: '#ffffff', border: '1px solid #e8e8e8', borderRadius: 14, padding: 22 },
