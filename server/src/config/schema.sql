@@ -153,11 +153,17 @@ CREATE TABLE IF NOT EXISTS tasks (
   description TEXT,
   assignee_id INTEGER REFERENCES users(id),
   due_date DATE,
+  priority VARCHAR(20) DEFAULT 'Medium' CHECK (priority IN ('Urgent', 'High', 'Medium', 'Low')),
+  category VARCHAR(100),
   section VARCHAR(20) DEFAULT 'todo' CHECK (section IN ('todo', 'in_progress', 'done')),
   created_by INTEGER REFERENCES users(id),
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
+
+-- Add priority and category columns to databases created before they existed
+ALTER TABLE tasks ADD COLUMN IF NOT EXISTS priority VARCHAR(20) DEFAULT 'Medium';
+ALTER TABLE tasks ADD COLUMN IF NOT EXISTS category VARCHAR(100);
 
 -- Budget table
 CREATE TABLE IF NOT EXISTS budgets (

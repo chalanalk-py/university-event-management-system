@@ -46,13 +46,7 @@ li { padding: 8px; border-bottom: 1px solid #eee; }
 .unread { font-weight: bold; background: #fff8e1; }
 .read { opacity: 0.7; }
 
-.task-board { display: flex; gap: 16px; }
-.task-section { flex: 1; background: #fff; padding: 12px; border-radius: 4px; border: 1px solid #ddd; }
-.task-desc { padding: 4px 8px; background: #f9f9f9; margin: 4px 0; font-size: 13px; }
 
-.progress-bar { position: relative; height: 24px; background: #e0e0e0; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
-.progress-fill { height: 100%; background: #4caf50; transition: width 0.3s; }
-.progress-bar span { position: absolute; top: 3px; left: 50%; transform: translateX(-50%); font-size: 12px; }
 
 .live-status { background: #1a1a2e; color: white; padding: 16px; border-radius: 4px; margin-bottom: 16px; }
 

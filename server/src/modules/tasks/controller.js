@@ -4,12 +4,12 @@ import { createNotification } from '../../utils/notifications.js';
 // Create task (Admin, Coordinator)
 export const createTask = async (req, res) => {
   try {
-    const { event_id, title, description, assignee_id, due_date } = req.body;
+    const { event_id, title, description, assignee_id, due_date, priority, category } = req.body;
     if (!event_id || !title) return res.status(400).json({ error: 'event_id and title required' });
 
     const result = await query(
-      'INSERT INTO tasks (event_id, title, description, assignee_id, due_date, created_by) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [event_id, title, description, assignee_id, due_date, req.user.id]
+      'INSERT INTO tasks (event_id, title, description, assignee_id, due_date, priority, category, created_by) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [event_id, title, description, assignee_id, due_date, priority || 'Medium', category || null, req.user.id]
     );
 
     // Notify assignee
@@ -26,12 +26,13 @@ export const createTask = async (req, res) => {
 // Update task
 export const updateTask = async (req, res) => {
   try {
-    const { title, description, assignee_id, due_date } = req.body;
+    const { title, description, assignee_id, due_date, priority, category } = req.body;
     const result = await query(
       `UPDATE tasks SET title = COALESCE($1, title), description = COALESCE($2, description), 
-       assignee_id = COALESCE($3, assignee_id), due_date = COALESCE($4, due_date), updated_at = NOW() 
-       WHERE id = $5 RETURNING *`,
-      [title, description, assignee_id, due_date, req.params.id]
+       assignee_id = COALESCE($3, assignee_id), due_date = COALESCE($4, due_date),
+       priority = COALESCE($5, priority), category = COALESCE($6, category), updated_at = NOW() 
+       WHERE id = $7 RETURNING *`,
+      [title, description, assignee_id, due_date, priority, category, req.params.id]
     );
     if (!result.rows.length) return res.status(404).json({ error: 'Task not found' });
     res.json(result.rows[0]);
@@ -120,9 +121,12 @@ export const getProgress = async (req, res) => {
     const total = result.rows.reduce((sum, r) => sum + parseInt(r.count), 0);
     const done = result.rows.find(r => r.section === 'done');
     const doneCount = done ? parseInt(done.count) : 0;
+    const inProgress = result.rows.find(r => r.section === 'in_progress');
+    const inProgressCount = inProgress ? parseInt(inProgress.count) : 0;
+    const todoCount = total - doneCount - inProgressCount;
     const percentage = total > 0 ? Math.round((doneCount / total) * 100) : 0;
 
-    res.json({ sections: result.rows, total, done: doneCount, percentage });
+    res.json({ sections: result.rows, total, done: doneCount, inProgress: inProgressCount, todo: todoCount, percentage });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
