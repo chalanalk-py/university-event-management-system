@@ -338,7 +338,7 @@ li:last-child {
 /* Top Header */
 .dashboard-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 6px 0 24px;
   margin-bottom: 12px;
