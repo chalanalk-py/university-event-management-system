@@ -1669,3 +1669,440 @@ li:last-child {
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   LOST & FOUND DESK PAGE
+   ========================================================================== */
+
+/* Page container */
+.lostfound-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 28px 60px;
+}
+
+/* Header */
+.lostfound-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.lostfound-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lostfound-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lostfound-icon {
+  flex-shrink: 0;
+}
+
+.lostfound-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.lostfound-subtitle {
+  font-size: 14px;
+  color: var(--secondary-gray);
+  margin-top: 2px;
+}
+
+/* Post button */
+.btn-post-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 20px;
+  background: var(--accent-blue);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-post-item:hover {
+  background: var(--accent-blue-hover);
+}
+
+.btn-post-item:active {
+  transform: scale(0.98);
+}
+
+/* Controls: search + filter tabs */
+.lostfound-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.lostfound-search-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.lostfound-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.lostfound-search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 0 42px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--primary-black);
+  background: var(--bg-white);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.lostfound-search-input::placeholder {
+  color: var(--secondary-gray-light);
+}
+
+.lostfound-search-input:focus {
+  border-color: var(--border-focus);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-blue-focus);
+}
+
+/* Filter tabs */
+.lostfound-filter-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--surface-hover);
+  border-radius: 10px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.lostfound-tab-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--secondary-gray);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.lostfound-tab-btn:hover {
+  color: var(--primary-black);
+  background: var(--bg-white);
+}
+
+.lostfound-tab-btn.active {
+  color: var(--bg-white);
+  background: var(--accent-blue);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Posts grid */
+.lostfound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.lostfound-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lostfound-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.07);
+  border-color: #D1D5DB;
+}
+
+/* Left border accent */
+.lostfound-card.card-lost {
+  border-left: 3px solid var(--danger-color);
+}
+
+.lostfound-card.card-found {
+  border-left: 3px solid var(--status-active-color);
+}
+
+/* Card image */
+.lostfound-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  background: var(--surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lostfound-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lostfound-no-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary-gray-light);
+  font-size: 12px;
+}
+
+/* Card body */
+.lostfound-card-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.lostfound-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Badges row */
+.card-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-lost {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: var(--danger-bg);
+  color: var(--danger-color);
+  border: 1px solid #FECACA;
+}
+
+.badge-found {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: var(--status-active-bg);
+  color: var(--status-active-color);
+  border: 1px solid var(--status-active-border);
+}
+
+.badge-resolved {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: var(--surface-hover);
+  color: var(--secondary-gray);
+  border: 1px solid var(--border-subtle);
+}
+
+.card-date {
+  font-size: 12px;
+  color: var(--secondary-gray-light);
+}
+
+/* Card title & description */
+.lostfound-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-black);
+  line-height: 1.35;
+}
+
+.lostfound-card-desc {
+  font-size: 13.5px;
+  color: var(--secondary-gray);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card meta details */
+.card-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--secondary-gray-dark);
+}
+
+.card-meta-icon {
+  flex-shrink: 0;
+}
+
+.card-meta-contact-icon {
+  flex-shrink: 0;
+}
+
+.contact-text {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+/* Resolve button */
+.btn-mark-resolved {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  background: var(--status-active-bg);
+  color: var(--status-active-color);
+  border: 1px solid var(--status-active-border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-mark-resolved:hover {
+  background: #D1FAE5;
+  border-color: #6EE7B7;
+}
+
+/* Modal header */
+.lostfound-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.lostfound-modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-black);
+  letter-spacing: -0.01em;
+}
+
+/* Post type toggle */
+.post-type-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-type-option {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--bg-white);
+  color: var(--secondary-gray);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.btn-type-option:hover {
+  border-color: #D1D5DB;
+  background: var(--surface-hover);
+}
+
+.btn-type-option.active-lost {
+  background: var(--danger-bg);
+  border-color: #FECACA;
+  color: var(--danger-color);
+  font-weight: 600;
+}
+
+.btn-type-option.active-found {
+  background: var(--status-active-bg);
+  border-color: var(--status-active-border);
+  color: var(--status-active-color);
+  font-weight: 600;
+}
+
+/* Modal actions */
+.lostfound-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.lostfound-btn-submit {
+  background: var(--accent-blue);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lostfound-container {
+    padding: 20px 16px 40px;
+  }
+
+  .lostfound-header {
+    flex-direction: column;
+  }
+
+  .btn-post-item {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lostfound-grid {
+    grid-template-columns: 1fr;
+  }
+}
