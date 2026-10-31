@@ -44,10 +44,18 @@ CREATE TABLE IF NOT EXISTS schedule_activities (
   description TEXT,
   start_time TIMESTAMP NOT NULL,
   end_time TIMESTAMP NOT NULL,
+  speaker VARCHAR(200),
+  location VARCHAR(200),
+  color VARCHAR(7) DEFAULT '#3b82f6',
   created_by INTEGER REFERENCES users(id),
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
+
+-- Add new schedule columns to databases created before they existed
+ALTER TABLE schedule_activities ADD COLUMN IF NOT EXISTS speaker VARCHAR(200);
+ALTER TABLE schedule_activities ADD COLUMN IF NOT EXISTS location VARCHAR(200);
+ALTER TABLE schedule_activities ADD COLUMN IF NOT EXISTS color VARCHAR(7) DEFAULT '#3b82f6';
 
 -- Election / nomination period table
 CREATE TABLE IF NOT EXISTS elections (
