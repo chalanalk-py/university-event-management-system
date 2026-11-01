@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
 import Login from './pages/Login';
@@ -29,11 +29,17 @@ function PrivateRoute({ children }) {
 // Navigation bar
 function NavBar() {
   const { user, logout } = useAuth();
+  const location = useLocation();
   if (!user) return null;
+
+  // Extract event ID from URL when inside an event route
+  const eventMatch = location.pathname.match(/^\/events\/(\d+)/);
+  const eventId = eventMatch ? eventMatch[1] : null;
 
   return (
     <nav className="navbar">
       <Link to="/dashboard">Dashboard</Link>
+      {eventId && <Link to={`/events/${eventId}`}>Event Home</Link>}
       <Link to="/tasks/my">My Tasks</Link>
       <Link to="/notifications">Notifications</Link>
       <span>{user.username} ({user.role})</span>
