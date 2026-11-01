@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import api from '../api';
+import api, { SERVER_URL } from '../api';
 
 export default function LostFound() {
   const { eventId } = useParams();
@@ -116,7 +116,7 @@ export default function LostFound() {
   const getImageSrc = (url) => {
     if (!url) return null;
     if (url.startsWith('http') || url.startsWith('data:')) return url;
-    if (url.startsWith('/uploads/')) return `http://localhost:5000${url}`;
+    if (url.startsWith('/uploads/')) return `${SERVER_URL}${url}`;
     return url;
   };
 
