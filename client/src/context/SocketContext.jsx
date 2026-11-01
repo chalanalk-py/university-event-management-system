@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import { SERVER_URL } from '../api';
 
 const SocketContext = createContext(null);
 
@@ -13,7 +14,8 @@ export function SocketProvider({ children }) {
   useEffect(() => {
     if (!user) return;
 
-    const s = io('http://localhost:5000');
+    // Initialize socket connection with backend server URL
+    const s = io(SERVER_URL);
     s.on('connect', () => {
       s.emit('join', user.id);
     });

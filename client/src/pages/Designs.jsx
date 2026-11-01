@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import api from '../api';
+import api, { SERVER_URL } from '../api';
 
 // Minimal stroke icons (no icon library)
 const Icon = ({ d, size = 16, color = 'currentColor' }) => (
@@ -160,7 +160,7 @@ export default function Designs() {
                   )}
                   {d.file_url ? (
                     <img
-                      src={`http://localhost:5000${d.file_url}`}
+                      src={`${SERVER_URL}${d.file_url}`}
                       alt={d.title}
                       style={styles.cardImage}
                     />
@@ -293,7 +293,7 @@ export default function Designs() {
             <div style={styles.viewImageWrapper}>
               {selectedDesign.file_url ? (
                 <img
-                  src={`http://localhost:5000${selectedDesign.file_url}`}
+                  src={`${SERVER_URL}${selectedDesign.file_url}`}
                   alt={selectedDesign.title}
                   style={styles.viewImage}
                 />
