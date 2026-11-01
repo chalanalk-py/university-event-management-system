@@ -1672,581 +1672,480 @@ li:last-child {
 
 
 /* ==========================================================================
-   Committee Nomination & Voting Styles
+   LOST & FOUND PAGE STYLES (FR-10)
    ========================================================================== */
 
-.election-page {
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  padding: 32px 28px 60px;
-}
-
-.election-container {
-  max-width: 1240px;
+.lostfound-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 32px 40px 56px;
+  min-height: 100vh;
 }
 
 /* Page Header */
-.election-header {
+.lostfound-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-bottom: 28px;
-}
-
-.election-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.election-header-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  color: #3b82f6;
-  flex-shrink: 0;
-}
-
-.election-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  color: #1a1a2e;
-  letter-spacing: -0.02em;
-}
-
-.election-subtitle {
-  margin: 6px 0 0;
-  font-size: 14px;
-  color: #666666;
-}
-
-/* Warnings */
-.election-warning-box {
-  position: relative;
-  background: #fff8e1;
-  border: 1px solid #ffc107;
-  color: #7a5a00;
-  border-radius: 10px;
-  padding: 12px 18px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.election-warning-close {
-  background: transparent;
-  border: none;
-  color: #7a5a00;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
-}
-
-/* Toggle pills for multiple elections */
-.election-view-toggle {
-  display: inline-flex;
-  background: #f4f4f5;
-  border: 1px solid #e8e8e8;
-  border-radius: 10px;
-  padding: 4px;
-  gap: 4px;
-  margin-bottom: 24px;
-}
-
-.election-toggle-pill {
-  padding: 8px 16px;
-  border: none;
-  background: transparent;
-  color: #888888;
-  font-size: 13.5px;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.election-toggle-pill.active {
-  background: #ffffff;
-  color: #1a1a2e;
-  font-weight: 600;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* Position Card */
-.election-position-card {
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 14px;
-  padding: 26px 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  transition: border-color 0.15s;
-}
-
-.election-position-card:hover {
-  border-color: #d8d8d8;
-}
-
-.position-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
-.position-info {
-  flex: 1;
-  min-width: 280px;
-}
-
-.position-title-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.position-title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1a1a2e;
-}
-
-.position-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: #eff6ff;
-  color: #3b82f6;
-  border-radius: 9999px;
-  padding: 3px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.position-status-badge.closed {
-  background: #ecfdf5;
-  color: #10b981;
-}
-
-.position-description {
-  margin: 6px 0 0;
-  font-size: 13.5px;
-  color: #666666;
-  line-height: 1.45;
-}
-
-.position-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-nominate {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  color: #1a1a2e;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.btn-nominate:hover {
-  background: #f5f5f5;
-  border-color: #d1d5db;
-}
-
-.btn-close-voting {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #111827;
-  color: #ffffff;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.btn-close-voting:hover {
-  background: #1f2937;
-}
-
-/* Delete / action buttons */
-.election-btn-delete {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  background: #fff5f5;
-  border: 1px solid #fee2e2;
-  color: #ef4444;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.election-btn-delete:hover {
-  background: #fee2e2;
-}
-
-/* Nominees Grid */
-.nominees-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
-  gap: 18px;
-  margin-top: 22px;
-}
-
-.nominee-card {
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 18px;
+.lostfound-title-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.nominee-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-}
-
-.nominee-card-header {
+.lostfound-title-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   gap: 10px;
+  margin-bottom: 4px;
 }
 
-.nominee-profile-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.nominee-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  text-transform: uppercase;
-}
-
-.nominee-names {
-  min-width: 0;
-}
-
-.nominee-fullname {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #1a1a2e;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.nominee-email {
-  font-size: 12px;
-  color: #888888;
-  margin-top: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Votes Badge */
-.nominee-votes-badge {
-  background: #eff6ff;
-  color: #3b82f6;
-  border-radius: 12px;
-  padding: 4px 10px;
-  font-size: 11.5px;
-  font-weight: 600;
-  text-align: right;
-  line-height: 1.25;
+.lostfound-icon {
   flex-shrink: 0;
 }
 
-.nominee-votes-count {
-  display: block;
+.lostfound-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-black);
+  margin: 0;
+  line-height: 1.3;
 }
 
-.nominee-votes-pct {
-  display: block;
-  font-size: 11px;
+.lostfound-subtitle {
+  font-size: 13.5px;
+  color: var(--secondary-gray);
+  margin: 0;
 }
 
-/* Manifesto Box */
-.nominee-manifesto {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 12px 14px;
-  margin: 14px 0 12px;
-  font-size: 12.5px;
-  font-style: italic;
-  color: #666666;
-  line-height: 1.45;
-  min-height: 52px;
-  display: flex;
+.btn-post-item {
+  display: inline-flex;
   align-items: center;
-}
-
-/* Progress Bar */
-.nominee-progress-track {
-  background: #e5e7eb;
-  height: 5px;
-  border-radius: 9999px;
-  overflow: hidden;
-  margin-bottom: 14px;
-}
-
-.nominee-progress-fill {
-  background: #3b82f6;
-  height: 100%;
-  border-radius: 9999px;
-  transition: width 0.3s ease;
-}
-
-/* Vote Button */
-.btn-vote {
-  width: 100%;
-  background: #3b82f6;
-  color: #ffffff;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent-blue);
+  color: var(--bg-white);
   border: none;
-  border-radius: 8px;
-  padding: 9px 14px;
-  font-size: 13.5px;
+  border-radius: 10px;
+  font-size: 14px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
   cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.btn-vote:hover {
-  background: #2563eb;
-}
-
-.btn-vote:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.btn-vote.voted {
-  background: #10b981;
-}
-
-/* Empty Nominees Box */
-.nominees-empty {
-  background: #f4f4f5;
-  border-radius: 8px;
-  padding: 24px 20px;
-  text-align: center;
-  color: #666666;
-  font-size: 13.5px;
-  margin-top: 18px;
-}
-
-/* ==========================================================================
-   Nomination & Election Modals
-   ========================================================================== */
-
-.election-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 24, 39, 0.45);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  animation: backdropFade 0.2s ease-out;
-}
-
-.election-modal {
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 520px;
-  padding: 28px 32px;
-  box-shadow: 0 25px 50px -12px rgba(17, 24, 39, 0.25);
-  animation: modalScale 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.election-modal-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
-}
-
-.election-modal-icon {
-  width: 22px;
-  height: 22px;
-  color: #3b82f6;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  transition: background 0.15s ease, transform 0.1s ease;
   flex-shrink: 0;
 }
 
-.election-modal-title {
-  margin: 0;
-  font-size: 17.5px;
-  font-weight: 700;
-  color: #1a1a2e;
+.btn-post-item:hover {
+  background: var(--accent-blue-hover);
 }
 
-.election-modal-form {
+.btn-post-item:active {
+  transform: scale(0.98);
+}
+
+/* Controls: Search + Filter Tabs */
+.lostfound-controls {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
 }
 
-.election-form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+.lostfound-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
 }
 
-.election-form-group label {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #1a1a2e;
-  margin-bottom: 6px;
+.lostfound-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
-.election-form-group input,
-.election-form-group textarea,
-.election-form-group select {
+.lostfound-search-input {
   width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  border: 1px solid #e2e2e8;
-  border-radius: 8px;
+  height: 44px;
+  padding: 10px 16px 10px 42px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--bg-white);
   font-size: 14px;
-  color: #1a1a2e;
-  background: #ffffff;
-  font-family: inherit;
+  color: var(--primary-black);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.election-form-group input::placeholder,
-.election-form-group textarea::placeholder {
-  color: #888888;
+.lostfound-search-input::placeholder {
+  color: var(--secondary-gray);
+  font-size: 14px;
 }
 
-.election-form-group input:focus,
-.election-form-group textarea:focus,
-.election-form-group select:focus {
-  border-color: #3b82f6;
+.lostfound-search-input:focus {
+  border-color: var(--border-focus);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 3px var(--accent-blue-focus);
 }
 
-.election-form-group textarea {
-  min-height: 84px;
-  resize: vertical;
-}
-
-.election-form-helper {
-  font-size: 12px;
-  color: #888888;
-  margin-top: 5px;
-}
-
-.election-modal-actions {
+.lostfound-filter-tabs {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 8px;
-  padding-top: 18px;
-  border-top: 1px solid #f0f0f0;
+  gap: 6px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 4px;
 }
 
-.election-btn-cancel {
-  padding: 9px 20px;
-  height: 40px;
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1a1a2e;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-}
-
-.election-btn-cancel:hover {
-  background: #f5f5f5;
-  border-color: #d1d5db;
-}
-
-.election-btn-submit {
-  padding: 9px 22px;
-  height: 40px;
-  background: #3b82f6;
-  color: #ffffff;
+.lostfound-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--secondary-gray);
   cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.lostfound-tab-btn:hover {
+  background: var(--surface-hover);
+  color: var(--primary-black);
+}
+
+.lostfound-tab-btn.active {
+  background: var(--primary-black);
+  color: var(--bg-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Posts Grid */
+.lostfound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.lostfound-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lostfound-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.07);
+  border-color: #D1D5DB;
+}
+
+.lostfound-card.card-lost {
+  border-top: 3px solid #EF4444;
+}
+
+.lostfound-card.card-found {
+  border-top: 3px solid #10B981;
+}
+
+/* Card Image */
+.lostfound-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  background: var(--surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lostfound-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lostfound-no-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--secondary-gray-light);
+  font-size: 12.5px;
+}
+
+/* Card Body */
+.lostfound-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.lostfound-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Badges Row */
+.card-badges-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-lost {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #FEF2F2;
+  color: #EF4444;
+  border: 1px solid #FECACA;
+  letter-spacing: 0.3px;
+}
+
+.badge-found {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ECFDF5;
+  color: #10B981;
+  border: 1px solid #A7F3D0;
+  letter-spacing: 0.3px;
+}
+
+.badge-resolved {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #F0FDF4;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+
+.card-date {
+  font-size: 12.5px;
+  color: var(--secondary-gray);
+  font-weight: 400;
+}
+
+/* Title & Description */
+.lostfound-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-black);
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.lostfound-card-desc {
+  font-size: 13.5px;
+  color: var(--secondary-gray);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Meta Details */
+.card-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--secondary-gray-dark);
+}
+
+.card-meta-icon {
+  flex-shrink: 0;
+}
+
+.card-meta-contact-icon {
+  flex-shrink: 0;
+}
+
+.contact-text {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+/* Resolve Button */
+.btn-mark-resolved {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
-  transition: background 0.15s, transform 0.1s;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--bg-white);
+  border: 1px solid #A7F3D0;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #10B981;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.election-btn-submit:hover {
-  background: #2563eb;
+.btn-mark-resolved:hover {
+  background: #ECFDF5;
+  border-color: #6EE7B7;
 }
 
-.election-btn-submit:active {
+.btn-mark-resolved:active {
   transform: scale(0.99);
 }
 
-@media (max-width: 768px) {
-  .election-page {
-    padding: 20px 16px;
-  }
-  .position-card-top {
-    flex-direction: column;
-  }
-  .nominees-grid {
+/* Lost & Found Modal */
+.lostfound-modal {
+  max-width: 580px;
+}
+
+.lostfound-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.lostfound-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-black);
+  margin: 0;
+}
+
+/* Post Type Toggle */
+.post-type-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-type-option {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-gray-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-type-option:hover {
+  border-color: #D1D5DB;
+  background: var(--surface-hover);
+}
+
+.btn-type-option.active-lost {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #DC2626;
+  font-weight: 600;
+}
+
+.btn-type-option.active-found {
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+  color: #059669;
+  font-weight: 600;
+}
+
+/* Modal Actions */
+.lostfound-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.lostfound-btn-submit {
+  flex: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .lostfound-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .lostfound-container {
+    padding: 20px 16px 40px;
+  }
+
+  .lostfound-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .lostfound-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lostfound-search-wrap {
+    min-width: unset;
+  }
+
+  .lostfound-filter-tabs {
+    justify-content: center;
+  }
+
+  .btn-post-item {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .post-type-toggle {
+    flex-direction: column;
   }
 }
