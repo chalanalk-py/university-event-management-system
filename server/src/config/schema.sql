@@ -86,9 +86,14 @@ CREATE TABLE IF NOT EXISTS nominations (
   position_id INTEGER REFERENCES committee_positions(id) ON DELETE CASCADE,
   nominee_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   nominated_by INTEGER REFERENCES users(id),
+  manifesto TEXT,
+  candidate_name VARCHAR(150),
   created_at TIMESTAMP DEFAULT NOW(),
   UNIQUE(position_id, nominee_id)
 );
+
+ALTER TABLE nominations ADD COLUMN IF NOT EXISTS manifesto TEXT;
+ALTER TABLE nominations ADD COLUMN IF NOT EXISTS candidate_name VARCHAR(150);
 
 -- Votes table (confidential - no direct link to voter exposed in queries)
 CREATE TABLE IF NOT EXISTS votes (
